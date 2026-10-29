@@ -1,0 +1,6 @@
+{
+  "name": "Ani Social - آني",
+  "description": "مساحة اجتماعية عربية لمشاركة اللحظات والقصص اليومية، التفاعل بالمنشورات والتعليقات المترابطة مع مساعد ذكي.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,42 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+import path from 'path';
+
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss(),
+  ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
+  server: {
+    port: 3000,
+    host: '0.0.0.0',
+    strictPort: true,
+    proxy: {
+      '/supabase-proxy': {
+        target: 'https://whvhxgfdumxzunzsjkll.supabase.co',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/supabase-proxy/, ''),
+      },
+    },
+  },
+  preview: {
+    port: 3000,
+    host: '0.0.0.0',
+    strictPort: true,
+    proxy: {
+      '/supabase-proxy': {
+        target: 'https://whvhxgfdumxzunzsjkll.supabase.co',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/supabase-proxy/, ''),
+      },
+    },
+  },
+});
